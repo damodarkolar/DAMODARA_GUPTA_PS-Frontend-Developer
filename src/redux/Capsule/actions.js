@@ -74,16 +74,32 @@ export const handleSetPageNumber = ( payload ) => {
     }
 }
 
-export const fetchAllCapsulesData = () => ( dispatch, state ) => {
+export const fetchAllCapsulesData = ( {limit, offset} ) => ( dispatch, state ) => {
 
     const { pageNumber } = state().Capsule
 
 
     dispatch(handleGetAllCapsuleDataLoading());
 
-    fetch(`https://api.spacexdata.com/v3/capsules`)
-    .then(res=>res.json())
-    .then(data=>dispatch(handleGetAllCapsuleData(data)))
+    fetch(`https://api.spacexdata.com/v3/capsules?limit=${limit}&offset=${offset}`)
+    .then(response=>
+        response.json()
+        // {
+        //     // Access the response headers
+        //     const headers = response.headers;
+        
+        //     // Get a specific header value
+        //     const contentType = headers.get('spacex-api-count');
+            
+        //     // Do something with the headers or the response data
+        //     // ...
+        //     console.log("contentType", contentType)
+        //   }
+        )
+    .then(response=>
+        dispatch(handleGetAllCapsuleData(response))
+        // console.log("response.headers;",response.headers)
+        )
     .catch(err=>dispatch(handleGetAllCapsuleDataErr()))
 
 }
@@ -104,8 +120,8 @@ export const fetchSingleCapsuleData = ( SingleCapsuleSerialNumber ) => ( dispatc
 
 }
 
-export const fetchCapsulesDataWithFilters = () => ( dispatch, state ) => {
-    const { capsuleTypeFilter, capsuleStatusFilter, capsuleOriginalLaunchFilter } = state().Capsule;
+export const fetchCapsulesDataWithFilters = ( {capsuleTypeFilter, capsuleStatusFilter, capsuleOriginalLaunchFilter} ) => ( dispatch, state ) => {
+    // const { capsuleTypeFilter, capsuleStatusFilter, capsuleOriginalLaunchFilter } = state().Capsule;
     let filterString="";
 
     if(capsuleTypeFilter!=""){
