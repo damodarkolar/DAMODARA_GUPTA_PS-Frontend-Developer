@@ -82,24 +82,8 @@ export const fetchAllCapsulesData = ( {limit, offset} ) => ( dispatch, state ) =
     dispatch(handleGetAllCapsuleDataLoading());
 
     fetch(`https://api.spacexdata.com/v3/capsules?limit=${limit}&offset=${offset}`)
-    .then(response=>
-        response.json()
-        // {
-        //     // Access the response headers
-        //     const headers = response.headers;
-        
-        //     // Get a specific header value
-        //     const contentType = headers.get('spacex-api-count');
-            
-        //     // Do something with the headers or the response data
-        //     // ...
-        //     console.log("contentType", contentType)
-        //   }
-        )
-    .then(response=>
-        dispatch(handleGetAllCapsuleData(response))
-        // console.log("response.headers;",response.headers)
-        )
+    .then(response=> response.json() )
+    .then(response=>  dispatch(handleGetAllCapsuleData(response)) )
     .catch(err=>dispatch(handleGetAllCapsuleDataErr()))
 
 }
