@@ -1,5 +1,28 @@
 {
-    "users":[
-        
-    ]
+  "users": [
+    {
+      "name": "damodar1",
+      "email": "indian@gmail.com",
+      "password": "india1",
+      "id": "9243a659-80de-463c-addf-13975f0a4cb3"
+    },
+    {
+      "name": "damodar2",
+      "email": "indian@gmail.com",
+      "password": "india2",
+      "id": "c98e7e3c-4166-4533-b345-38e4975f2251"
+    },
+    {
+      "name": "damodar",
+      "email": "indian@gmail.com",
+      "password": "india",
+      "id": "c80f9be6-20e1-40c2-b734-02db7e4611ba"
+    },
+    {
+      "name": "damodar",
+      "email": "indian@gmail.com",
+      "password": "india",
+      "id": "d414c42d-9a55-4cc9-adeb-80eefbc128a8"
+    }
+  ]
 }

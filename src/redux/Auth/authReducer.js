@@ -1,9 +1,12 @@
-import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_ERR, LOG_OUT } from "./actionTypes";
+import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_ERR, LOG_OUT, REGISTER_NEW_USER, REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_ERR, GET_ALL_USERS, SET_LOGIN_ERR_MESSAGE } from "./actionTypes";
 
 const initialState={
     loginLoading:false,
     loginErr:false,
-    token : ""
+    token : "",
+    allUsers: [],
+    logedInUserData: {},
+    loginErrMessage: "", 
 }
 
 export const AuthReducer = (store=initialState, {type, payload})=>{
@@ -19,7 +22,9 @@ switch (type) {
                 ...store,
                 loginLoading:false,
                 loginErr:false,
-                token:payload
+                token:payload.token,
+                logedInUserData: payload.logedInUserData,
+                loginErrMessage:"",
             }
     case LOGIN_ERR:
                 return {
@@ -31,7 +36,19 @@ switch (type) {
                 return {
                     ...store,
                     token:"",
+                    logedInUserData:[],
+                    loginErrMessage: "",
                 }
+    case GET_ALL_USERS:
+        return {
+            ...store,
+            allUsers:payload
+        }
+     case SET_LOGIN_ERR_MESSAGE:
+            return {
+                ...store,
+                
+            }
     default:
         return{
             ...store,

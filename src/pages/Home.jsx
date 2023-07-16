@@ -2,7 +2,7 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllCapsulesData, fetchSingleCapsuleData, handleSetCapsuleSerialNumber } from "../redux/Capsule/actions";
-
+import { v4 as uuid } from 'uuid';
 
 
 
@@ -42,17 +42,20 @@ export const Home = () =>{
                 )
         }, [allCapsuleData, singleCapsuleData, capsuleSerialNumber])
         const patchRegisterNewUser = () => {
-            fetch(`http://localhost:4004/users/`,{
-                method:"PATCH",
-                body:JSON.stringify({
-                name:"damodar",
-                email:"indian@gmail.com",
-                password: "india",
-            }),
-            headers:{
-            "Content-Type": "application/json"
-            }
-         })
+            fetch(`http://localhost:4004/users/?name=damodar1&password=india1`
+        //     ,{
+        //         method:"POST",
+        //         body:JSON.stringify({
+        //         name:"damodar",
+        //         email:"indian@gmail.com",
+        //         password: "india",
+        //         id: uuid()
+        //     }),
+        //     headers:{
+        //     "Content-Type": "application/json"
+        //     }
+        //  }
+         )
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
