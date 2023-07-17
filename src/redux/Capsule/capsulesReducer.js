@@ -45,7 +45,6 @@ export const CapsuleReducer = (store=capsuleReducer, {type, payload} )=>{
                 ...store,
                 singleCapsuleDataLoading:true,
                 singleCapsuleDataErr:false,
-                singleCapsuleData: payload,
             }
         case CAPSULE_SINGLE_DATA_ERR:
             return {

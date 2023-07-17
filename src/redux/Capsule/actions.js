@@ -113,7 +113,7 @@ export const fetchSingleCapsuleData = ( SingleCapsuleSerialNumber ) => ( dispatc
     fetch(`https://api.spacexdata.com/v3/capsules?capsule_serial=${SingleCapsuleSerialNumber}`)
     .then(res=>res.json())
     .then(data=>
-        dispatch(handleGetSingleCapsuleData(data))
+        dispatch(handleGetSingleCapsuleData(data[0]))
         // console.log(data)
         )
     .catch(err=>dispatch(handleGetSingleCapsuleDataErr()))

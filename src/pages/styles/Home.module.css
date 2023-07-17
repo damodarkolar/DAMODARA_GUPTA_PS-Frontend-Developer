@@ -3,22 +3,11 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-}
-.homePageBanner{
     width: 100%;
-    height: 50vh;
-    border: 2px solid;
+    margin: auto;
 }
-.homePageSortingBox{
-    width: 100%;
-    height: 150px;
-    border: 2px solid;
-}
-.homePageCardsContainer{
-    width: 100%;
-    height: 30vh;
-    border: 2px solid;
-}
+
+
 .homePagePaginationBox{
     display: flex;
     align-items: center;
@@ -36,6 +25,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 4ox;
+    cursor: pointer;
+
 
 }
 .pageSelectedDiv{
@@ -47,6 +38,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 4ox;
+    cursor: pointer;
+
 
 }
 .pageNotSelectedDiv{
@@ -61,5 +54,153 @@
     background: var(--white, #FFF);
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
     background: var(--white, #FFF);
-    
+    cursor: pointer;
+
+}
+.homePageBanner{
+    width: 100%;
+    height: 55vh;
+    position: relative;
+}
+.homePageBanner>img{
+    width: 100%;
+    height: 55vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.arrowContainer{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 1rem ;
+
+}
+.arrowBox{
+    background: #FCF8F3;
+    box-shadow: 4px 12px 30px 0px rgba(0, 0, 0, 0.25);
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4ox;
+    cursor: pointer;
+}
+
+.homeBannerDotsContainer{
+    position: absolute;
+    top: 90%;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-direction: row;
+}
+.bannerDotSelected{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #FCF8F3;
+    cursor: pointer;
+
+}
+.bannerDotNotSelected{
+    width: 1rem;
+    box-sizing: border-box;
+    height: 1rem;
+    border-radius: 50%;
+    background: #fff;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.homePageCardsContainer{
+    width: 95%;
+    margin: auto;
+    min-height: 30vh;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto auto auto;
+    margin: 1rem 0;
+    box-sizing: border-box; 
+}
+.filterSubmitButton{
+    border-radius: 4px;
+    background: var(--main-color, #61310E);
+    /* Shadow 1 */
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+    color: var(--system-colors-primary-00, #FFF);
+    text-align: center;
+    /* System Fonts/Body/Bold */
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.5rem 2rem;
+    cursor: pointer;    
+    height: 50px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homePageSortingBox{
+    width: 100%;
+    /* height: 100px; */
+    display: grid;
+    grid-template-columns: auto auto auto; 
+    gap: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.filerInputBox{
+    border-radius: 8px;
+    border: 1px solid var(--system-colors-neutral-text-bg-300, #B8C0CC);
+    background: var(--system-colors-primary-00, #FFF);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.filerDropDown{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #FFF;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.16);
+}
+
+.filterSingleDropDownOption{
+    background: #FFF;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.16);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:768px){
+    .homePageCardsContainer{
+    grid-template-columns: auto ;
+    }
+    .homePageSortingBox{
+        grid-template-columns: auto auto;
+    }
 }

@@ -1,0 +1,76 @@
+.capsulesBoxCapsuleCardContainer{
+    width: 100%;
+    height: 200px;
+    background: #FCF8F3;
+    box-shadow: 4px 12px 30px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+
+}
+.capsuleIdSerialContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--main-color, #61310E);
+    text-align: center;
+    font-family: Avenir LT Std;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
+    text-transform: uppercase;
+
+}
+.capsuleDetailsContainer{
+    font-family: Avenir LT Std;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
+    text-transform: uppercase;
+}
+.capsuleActiveContainer{
+    color: #fff;
+    text-align: center;
+    font-family: Avenir LT Std;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
+    text-transform: uppercase;
+    background: green;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+.CapsuleRetiredContainer{
+    color: #fff;
+    text-align: center;
+    font-family: Avenir LT Std;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
+    text-transform: uppercase;
+    background: #f66;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+.CapsuleUnknownContainer{
+    color: #fff;
+    text-align: center;
+    font-family: Avenir LT Std;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
+    text-transform: uppercase;
+    background: grey;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
