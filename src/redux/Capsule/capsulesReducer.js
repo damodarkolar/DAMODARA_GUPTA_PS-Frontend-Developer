@@ -1,4 +1,4 @@
-import { CAPSULE_ALL_DATA, CAPSULE_ALL_DATA_LOADING, CAPSULE_ALL_DATA_ERR, CAPSULE_SINGLE_DATA, CAPSULE_SINGLE_DATA_LOADING, CAPSULE_SINGLE_DATA_ERR, SET_CAPSULE_SERIAL, SET_CAPSULE_TYPE_FILTER, SET_CAPSULE_STATUS_FILTER, SET_CAPSULE_ORIGINAL_LAUNCH_FILTER, SET_PAGE_NUMBER,  } from "./actionTypes"
+import { CAPSULE_ALL_DATA, CAPSULE_ALL_DATA_LOADING, CAPSULE_ALL_DATA_ERR, CAPSULE_SINGLE_DATA, CAPSULE_SINGLE_DATA_LOADING, CAPSULE_SINGLE_DATA_ERR, SET_CAPSULE_SERIAL, SET_CAPSULE_TYPE_FILTER, SET_CAPSULE_STATUS_FILTER, SET_CAPSULE_ORIGINAL_LAUNCH_FILTER, SET_PAGE_NUMBER, SET_TOTAL_PRODUCT_COUNT } from "./actionTypes"
 
 
  
@@ -15,6 +15,7 @@ const capsuleReducer = {
     capsuleStatusFilter: "",
     capsuleOriginalLaunchFilter: "",
     pageNumber: 1,
+    totalCapsuleCount:0,
 }
 
 
@@ -83,6 +84,11 @@ export const CapsuleReducer = (store=capsuleReducer, {type, payload} )=>{
             return {
                 ...store,
                 pageNumber: payload,
+            }
+        case SET_TOTAL_PRODUCT_COUNT:
+            return {
+                ...store,
+                totalCapsuleCount:payload,
             }
         default:
             return{

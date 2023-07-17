@@ -5,7 +5,7 @@
 
 
 export const CapsuleBoxCapsuleCard = ( props ) => {
-    console.log("props",props)
+    
     return(
         <>
         <div className={"capsulesBoxCapsuleCard"}>

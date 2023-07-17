@@ -1,4 +1,4 @@
-import { CAPSULE_ALL_DATA, CAPSULE_ALL_DATA_LOADING, CAPSULE_ALL_DATA_ERR, CAPSULE_SINGLE_DATA, CAPSULE_SINGLE_DATA_LOADING, CAPSULE_SINGLE_DATA_ERR, SET_CAPSULE_SERIAL, SET_CAPSULE_TYPE_FILTER, SET_CAPSULE_STATUS_FILTER, SET_CAPSULE_ORIGINAL_LAUNCH_FILTER, SET_PAGE_NUMBER } from "./actionTypes"
+import { CAPSULE_ALL_DATA, CAPSULE_ALL_DATA_LOADING, CAPSULE_ALL_DATA_ERR, CAPSULE_SINGLE_DATA, CAPSULE_SINGLE_DATA_LOADING, CAPSULE_SINGLE_DATA_ERR, SET_CAPSULE_SERIAL, SET_CAPSULE_TYPE_FILTER, SET_CAPSULE_STATUS_FILTER, SET_CAPSULE_ORIGINAL_LAUNCH_FILTER, SET_PAGE_NUMBER, SET_TOTAL_PRODUCT_COUNT } from "./actionTypes"
 
 
 export const handleGetAllCapsuleDataLoading = () => {
@@ -19,7 +19,12 @@ export const handleGetAllCapsuleData = ( payload ) => {
         payload,
     }
 }
-
+export const handleSetTotalItems = ( payload ) => {
+    return {
+        type: SET_TOTAL_PRODUCT_COUNT,
+        payload,
+    }
+}
 export const handleGetSingleCapsuleDataLoading = () => {
     return {
         type: CAPSULE_SINGLE_DATA_LOADING,
@@ -81,10 +86,21 @@ export const fetchAllCapsulesData = ( {limit, offset} ) => ( dispatch, state ) =
 
     dispatch(handleGetAllCapsuleDataLoading());
 
-    fetch(`https://api.spacexdata.com/v3/capsules?limit=${limit}&offset=${offset}`)
-    .then(response=> response.json() )
-    .then(response=>  dispatch(handleGetAllCapsuleData(response)) )
-    .catch(err=>dispatch(handleGetAllCapsuleDataErr()))
+    const getCapsuleData = async () =>{
+    const response=await fetch(`https://api.spacexdata.com/v3/capsules?limit=${limit}&offset=${offset}`)
+    // .then(response=> response.json() )
+    // .then(response=>  dispatch(handleGetAllCapsuleData(response)) )
+    // .catch(err=>dispatch(handleGetAllCapsuleDataErr()))
+    try {
+        const data = await response.json()
+        dispatch(handleGetAllCapsuleData(data))
+        dispatch(handleSetTotalItems(response.headers.get('spacex-api-count')))
+    } catch (error) {
+        dispatch(handleGetAllCapsuleDataErr())
+    }
+
+    }
+    getCapsuleData();
 
 }
 
